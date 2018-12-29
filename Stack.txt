@@ -1,0 +1,182 @@
+Stack and Queues
+
+The stack data structure
+to store data in a stack rather than in an array
+
+A stack uses LIFO ordering. The most recent item added to the stack is the first item to be removed. 
+
+It uses the following operations
+- pop() : Remove the top item from the stack
+- push(item) : Add an item to the top of the stack
+- peek() : Return the top of the stack
+- isEmpty() : Return true if and only if the stack is Empty
+
+  ListIterator<Employee> iterator = stack.listIterator();
+        while(iterator.hasNext())
+        {
+            Employee employee = (Employee)iterator.next();
+            System.out.println(employee);
+        }
+
+public class ArrayStack<T>
+{
+	private int [] stack;
+	private top;
+
+	public void push(int element)
+	{
+		if(top == stack.length)
+		{
+			int [] intArr = new int[2 * stack.length];
+			System.arraycopy(stack,0,intArr,0,stack.length);
+			stack = intArr;
+		}
+	
+		stack[top++] = element;
+	}
+
+	public int pop()
+	{
+		if(top == 0)
+		{
+			throw new EmptyStackException();
+		}
+		
+		int element = stack[--top];
+		stack[top] = 0;
+		return element;
+	}
+
+	public int peek()
+	{
+		if(top == 0)
+		{
+			throw new EmptyStackException();	
+		}
+
+		return stack[top - 1];
+	}
+
+	public void printStack()
+	{
+		for(int i = top - 1 ; i >= 0 ; i--)
+		{
+			System.out.println(stack[i]);
+		}
+	}
+}
+
+==================================================================================
+
+public class ArrayStack
+{
+	private int [] stack;
+	private int top;
+		
+	public ArrayStack(int capacity)
+	{
+		stack = new int[capacity];
+	}
+
+	public void push(int element)
+	{
+		if(top == stack.length)
+		{
+			int intArr = new int[capacity * 2];
+			System.arraycopy(stack,0,intArr,0,stack.length);
+			stack = intArr;
+		}
+		
+		stack[top++] = element;
+	}
+
+	public int pop()
+	{
+		if(top == 0)
+		{
+			throw new EmptyStackException();
+		}
+		
+		int element = stack[--top];
+		stack[top] = 0;
+		return element;
+	}
+
+	public int peek()
+	{
+		if(top == 0)
+		{
+			throw new EmptyStackException();	
+		}
+		
+		return stack[top = 1];
+	}
+
+	
+	public void printStack()
+	{
+		for(int i = top - 1 ; i >= 0 ; i--)
+		{
+			System.out.println(stack[i]);
+		}
+	}
+}
+==================================================================================
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
